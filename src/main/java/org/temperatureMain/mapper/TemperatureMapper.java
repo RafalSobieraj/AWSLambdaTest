@@ -32,8 +32,8 @@ public class TemperatureMapper {
             result.put("city", city);
             result.put("temperature", weatherData.get("temperature_2m").asInt());
             result.put("category",
-                    Objects.requireNonNull(TemperaturesEnum.getTemperatureCategory(weatherData.get("temperature_2m")
-                            .asInt())).ordinal());
+                    Objects.requireNonNull(Objects.requireNonNull(TemperaturesEnum
+                            .getTemperatureCategory(weatherData.get("temperature_2m").asInt())).toString()));
 
             return objectMapper.writerWithDefaultPrettyPrinter().writeValueAsString(result);
 
