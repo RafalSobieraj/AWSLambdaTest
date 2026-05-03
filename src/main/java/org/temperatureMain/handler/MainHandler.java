@@ -13,10 +13,9 @@ public class MainHandler implements RequestHandler<Map<String, Object>, Object> 
     public Object handleRequest(Map<String, Object> input, Context context) {
 
         Map<String, Object> event = (Map<String, Object>) input.get("queryStringParameters");
-
         String city = event.get("city").toString();
         OpenMeteoAPI openMeteoAPI = new OpenMeteoAPI();
 
-        return openMeteoAPI.getWeatherInCity(city);
+        return openMeteoAPI.getCoordinatesFromCity(city);
     }
 }
