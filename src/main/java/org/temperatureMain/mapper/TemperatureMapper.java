@@ -28,7 +28,7 @@ public class TemperatureMapper {
             JsonNode weatherRoot = objectMapper.readTree(responseWeather.body());
             JsonNode weatherData = weatherRoot.get("current");
 
-            ObjectNode result =objectMapper.createObjectNode();
+            ObjectNode result = objectMapper.createObjectNode();
             result.put("city", city);
             result.put("temperature", weatherData.get("temperature_2m").asInt());
             result.put("category",

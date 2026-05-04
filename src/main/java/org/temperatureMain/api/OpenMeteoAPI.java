@@ -10,7 +10,7 @@ import java.net.http.HttpResponse;
 
 public class OpenMeteoAPI {
 
-    public Object getCoordinatesFromCity(String city) {
+    public String getCoordinatesFromCity(String city) {
 
         final TemperatureMapper temperatureMapper = new TemperatureMapper();
 
@@ -51,7 +51,6 @@ public class OpenMeteoAPI {
                     .build();
 
             HttpClient httpClient = HttpClient.newHttpClient();
-
 
             return httpClient.send(weatherHttpRequest, HttpResponse.BodyHandlers.ofString());
         } catch (IOException | InterruptedException e) {
