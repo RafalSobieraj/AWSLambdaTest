@@ -1,0 +1,6 @@
+Application that enables checking temperature from selected city. 
+It contains MainHandler, where data transfer starts. Its main logic class is OpenMeteoAPI. which contains methods enabling getting coordinates from selected city, which then are used to get temperature. The data obtained are then used in TemperatureMapper in order to get the most needed data. Then the result is returned as JSON.
+This solution could be unit tested by using JUnit5 Mockicto because it creates artificial environment that enables to work without fear of editing real data and enables endpoints mocking, which means that it is pretending to use API.
+Application provides URL with city name as query parameter e.g. https://ktj6tphxhssdineg3h6agitmay0glsuj.lambda-url.eu-north-1.on.aws/?city={{city}} it returns temperature data for given city e.g Krakow.
+My current design limits other possible uses of another APIs because OpenMeteoAPI class is designed specifically for this API and my mapper depends on this too.
+If I had more time in the future I would create an Interface that may be used by both APIs and change TemperatureMapper to provide more methods or change already existing that can work with another APIs.
